@@ -129,12 +129,10 @@ void loop(void) {
       Serial.print(i);
       Serial.print(" ");
       Serial.println(temp);
-
     }
   }
   touch+='o';  
-//  if(touch != ""){
-/*
+  if(touch != ""){
     Serial.println(touch);
     ble.print("AT+BleKeyboard=");
     ble.println(touch);
@@ -144,8 +142,7 @@ void loop(void) {
     }else {
       Serial.println( F("FAILED!") );
     }
-    */
-//  }
+  }
 }
 
 void error(const __FlashStringHelper*err) {
