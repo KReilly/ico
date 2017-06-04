@@ -21,6 +21,8 @@ Adafruit_BNO055 bno;
 
 uint16_t currtouched = 0;
 int timeSinceSend = 0;
+char touchMap[12] = {'e', 'a', 'f', 'd', 'b', 'c', 'i', 'h', 'j', 'g', 'l', 'k'}; //mapping order of inputs to labels on object.
+
 
 void setup(void)
 {
@@ -122,7 +124,7 @@ void loop(void) {
   currtouched = cap.touched();
   for (int i=0; i<12; i++) {
     if (currtouched & _BV(i)) {
-      char temp = i+'a';
+      char temp = touchMap[i];//i+'a';
       touch += temp;
       Serial.print(i);
       Serial.print(" ");
@@ -130,8 +132,7 @@ void loop(void) {
 
     }
   }
-  touch+='o';
-  
+  touch+='o';  
 //  if(touch != ""){
 /*
     Serial.println(touch);
